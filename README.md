@@ -8,6 +8,14 @@ request is rejected with `429 Too Many Requests`. This lets clients burst up to
 capacity while capping their sustained rate — the same approach production APIs
 use.
 
+## C# / ASP.NET Core port
+
+The [`dotnet/`](dotnet/) folder has a port of RateGuard to C# / ASP.NET Core
+(.NET 10) using the same token-bucket algorithm, with xUnit unit and
+integration tests. It is deployed on Azure App Service:
+https://rateguard-dotnet-615n.azurewebsites.net/swagger. See
+[dotnet/README.md](dotnet/README.md) for its design and limitations.
+
 ## Features
 
 - **Token bucket algorithm** — continuous, lazy refill (no background timers)
@@ -147,6 +155,7 @@ src/
   utils/
     time.ts
 tests/
+dotnet/             C# / ASP.NET Core port (see dotnet/README.md)
 ```
 
 ## Tech stack
